@@ -66,7 +66,7 @@
 
         sv.availableLayer = L.tileLayer(availability.url, availability);
 
-        $.getScript('http://maps.google.com/maps/api/js?v=3&sensor=false&callback=' + Gcallback)
+        $.getScript('https://maps.google.com/maps/api/js?v=3&sensor=false&callback=' + Gcallback)
             .done(function (script, textStatus) {
                 console.log('Google API loaded');
             })
