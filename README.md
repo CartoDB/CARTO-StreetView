@@ -1,6 +1,9 @@
 # CARTO-StreetView
 #### Proof of concept
+
 Little lib to add contextual Google StreetView functionality to CARTO.js application
+
+Testi it at: https://cartodb.github.io/CARTO-StreetView/
 
 Functionality so far:
 * Click anywhere to open a StreetView infowindow
