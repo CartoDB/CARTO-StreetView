@@ -30,10 +30,9 @@
         sv._map = options.nativeMap;
 
         $.getScript('carto.streetview.map.' + m + '.js')
-        .done(function (script, textStatus) {
-            sv.mapper[m](options);
-            loadprovider();
-        });
+            .done(function (script, textStatus) {
+                sv.mapper[m](options, loadprovider);
+            });
 
     };
 

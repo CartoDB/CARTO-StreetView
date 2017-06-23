@@ -9,16 +9,22 @@
         mp = sv.provider,
         m = sv.mapper,
         availability = {
+            scene: 'https://mapzen.com/api/scenes/34734/644/resources/basic.yaml',
+            attribution: '<a href="https://mapzen.com/tangram" target="_blank">Tangram</a> | &copy; OSM contributors',
+            opacity: 0
+        },
+        availability_tile = {
             url: 'https://d6a1v2w10ny40.cloudfront.net/v0.1/{z}/{x}/{y}.png',
             opacity: 0,
-            attribution:  "Imagery availability, by Mapillary"
+            attribution: "Imagery availability, by Mapillary"
         };
 
     mp.mapillary = function (options) {
 
         var
             init = function (options) {
-                sv.mapper.addlayer(sv._availableLayer, sv._map);
+                // debugger;
+                sv.mapper.addlayer(sv._availableLayer, sv._map, options);
                 options.nativeMap.on('click', mp.show);
             },
             makeID = function (e) { // from AV-String extension v1.0
@@ -37,13 +43,13 @@
                 return text;
             },
             Mcallback = makeID(6),
-            url = 'https://unpkg.com/mapillary-js@2.5.0/dist/mapillary.min.js';
+            url = 'https://unpkg.com/mapillary-js@2.5.1/dist/mapillary.min.js';
 
 
-        var link = document.createElement('link')
-        link.setAttribute('rel', 'stylesheet')
-        link.setAttribute('type', 'text/css')
-        link.setAttribute('href', 'https://unpkg.com/mapillary-js@2.5.0/dist/mapillary.min.css')
+        var link = document.createElement('link');
+        link.setAttribute('rel', 'stylesheet');
+        link.setAttribute('type', 'text/css');
+        link.setAttribute('href', 'https://unpkg.com/mapillary-js@2.5.1/dist/mapillary.min.css');
         document.getElementsByTagName('head')[0].appendChild(link);
 
         window[Mcallback] = function () {
@@ -51,7 +57,8 @@
             delete window[Mcallback];
         };
 
-        sv._availableLayer = sv.mapper.createlayer(availability);
+        options.coverage = availability;
+        sv._availableLayer = sv.mapper.createlayer(options);
 
         $.getScript(url)
             .done(function (script, textStatus) {
@@ -61,7 +68,6 @@
             .fail(function (jqxhr, settings, exception) {
                 console.error('Failed to load Mapillary library');
             });
-
 
         mp.show = function (e) {
             var
@@ -82,6 +88,11 @@
                 null,
                 panoramaOptions
             );
+
+            sv._panorama.setFilter(["==", "pano", true]).then(function(){
+                debugger;
+                console.log("filtered");
+            });
 
             sv._panorama.on(
                 Mapillary.Viewer.bearingchanged,
@@ -107,7 +118,9 @@
                 .then(
                     function (node) {
                         //console.log(node.key);
-                        $('.domRenderer > div').css({'z-index':'100'});
+                        $('.domRenderer > div').css({
+                            'z-index': '100'
+                        });
                     },
                     function (error) {
                         console.error(error);
@@ -119,7 +132,7 @@
             sv._panorama.moveCloseTo(p.lat, p.lng)
                 .then(
                     function (node) {
-                       // console.log(node.key);
+                        // console.log(node.key);
                     },
                     function (error) {
                         console.error(error);

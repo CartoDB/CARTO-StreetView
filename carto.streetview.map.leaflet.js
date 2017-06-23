@@ -8,14 +8,55 @@
     var sv = cdb.streetview,
         lm = sv.mapper;
 
-    lm.leaflet = function () {
+    lm.leaflet = function (options, callback) {
 
-        lm.createlayer = function (options) {
-            return L.tileLayer(options.url, options);
+        if (options.vector == true) {
+            $.getScript('https://mapzen.com/tangram/tangram.min.js')
+                .done(function (script, textStatus) {
+                    console.log('Tangram loaded');
+                    callback();
+                })
+                .fail(function (jqxhr, settings, exception) {
+                    console.error('Failed to load Tangram')
+                });
+        } else {
+            debugger;
+            callback();
         }
 
-        lm.addlayer = function (layer, map) {
-            layer.addTo(map);
+        var layerdone = false;
+
+        lm.createlayer = function (options) {
+            var c = options.coverage;
+            if (options.vector == true && window.Tangram) {
+                return Tangram.leafletLayer(c);
+            } else {
+                return L.tileLayer(c.url, c);
+            }
+        }
+
+        lm.addlayer = function (layer, map, options) {
+            if (!layerdone && layer != void 0) {
+                layer.addTo(map);
+                if (options.vector == true && options.filters != void 0) {
+                    var scene = sv._availableLayer.scene;
+                    scene.subscribe({
+                        load: function (e) {
+                            if (layerdone == true) return;
+                            layerdone = true;
+                            var layers = scene.config.layers;
+                            for (var layer in layers) {
+                                if (layers.hasOwnProperty(layer)) {
+                                    layers[layer].filter = options.filters;
+                                }
+                            }
+                            scene.updateConfig();
+                        }
+                    });
+                }
+            } else {
+                console.warn('Layer is undefined');
+            }
         }
 
         lm.layervisibility = function (layer, visibility) {
@@ -42,11 +83,11 @@
             lm.newicon(0);
             sv._pov.addTo(sv._map);
             sv._pov.on('dragstart', function () {
-                if(sv._availableLayer) lm.layervisibility(sv._availableLayer,1);
+                if (sv._availableLayer) lm.layervisibility(sv._availableLayer, 1);
             });
             sv._pov.on('dragend', function () {
                 sv.provider.callback(sv._pov.getLatLng());
-                if(sv._availableLayer) lm.layervisibility(sv._availableLayer,0);
+                if (sv._availableLayer) lm.layervisibility(sv._availableLayer, 0);
                 if (document.getElementById('av-pano') == void 0) sv.provider.show(e);
             });
 
@@ -62,7 +103,8 @@
                 visorbox.id = 'av-pano-box';
                 visorbox.style.cssText = 'min-width:500px;min-height:' + altura + 'px; pointer-events: all !important;';
                 visor.id = 'av-pano';
-                visor.style.cssText = 'width:100%; height: 100%; min-width:500px;min-height:' + altura + 'px; pointer-events: all !important;';
+                visor.classList.add('av-pano-viewer');
+                visor.style.minHeight= altura + 'px';
                 visorbox.appendChild(visor);
 
                 sv._popup = L.popup({
@@ -87,7 +129,7 @@
             }
         }
 
-        lm.callback = function(p){
+        lm.callback = function (p) {
             var latlng = new L.latLng(p.lat(), p.lng());
             sv._pov.setLatLng(latlng);
             sv._popup.setLatLng(latlng);

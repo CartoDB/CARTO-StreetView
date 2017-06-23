@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title> CARTO.StreetView - Proof of concept </title>
     <meta charset="utf-8" />
@@ -19,23 +20,28 @@
     <div id="mapid"></div>
 
     <script>
+        window.onload = function() {
+            var mymap = L.map('mapid').setView([40.420702, -3.705838], 14);
 
-        var mymap = L.map('mapid').setView([40.420702, -3.705838], 16);
+            L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href = "https://carto.com/attribution" > CARTO < /a>'
+            }).addTo(mymap);
 
-        L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href = "https://carto.com/attribution" > CARTO < /a>'
-        }).addTo(mymap);
-
-        // instantiate the street level imagery
-        cdb.streetview.new({
-            nativeMap: mymap,
-            mapper: "Leaflet",
-            provider: "Mapillary", //"Google",
-            CLIENT_ID: 'QjI1NnU0aG5FZFZISE56U3R5aWN4ZzowODkzY2RjNjM1ZmEwYTVi'
-        });
-
+            // instantiate the street level imagery
+            cdb.streetview.new({
+                nativeMap: mymap,
+                mapper: "Leaflet",
+                provider: "Mapillary", //"Google",
+                CLIENT_ID: 'QjI1NnU0aG5FZFZISE56U3R5aWN4ZzowODkzY2RjNjM1ZmEwYTVi',
+                vector: true,
+                filters:{
+                    pano: 1
+                }
+            });
+        }
     </script>
 
 </body>
+
 </html>
