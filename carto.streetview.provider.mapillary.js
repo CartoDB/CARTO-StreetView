@@ -118,9 +118,9 @@
                 .then(
                     function (node) {
                         //console.log(node.key);
-                        $('.domRenderer > div').css({
-                            'z-index': '100'
-                        });
+//                        $('.domRenderer > div').css({
+//                            'z-index': '100'
+//                        });
                     },
                     function (error) {
                         console.error(error);
