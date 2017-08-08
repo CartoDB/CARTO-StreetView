@@ -89,7 +89,8 @@
 
     <script>
         var visorInner = document.createElement('div'),
-            mly;
+            mly,
+            imgkey;
         visorInner.id = 'visorInner';
         window.onload = function() {
             var
@@ -97,8 +98,10 @@
                 original_hide = mapView._infowindowManager._hideInfowindow;
             mapView._infowindowManager._showInfowindow = function(featureId) {
                 var gogogo = function() {
-                    var visor = document.querySelector('#visor'),
-                        imgkey = visor.getAttribute('data-key');
+                    var visor = document.querySelector('#visor');
+
+                    if (imgkey == visor.getAttribute('data-key')) {return;} else {imgkey = visor.getAttribute('data-key');}
+
                     visor.appendChild(visorInner);
                     if (mly == null) {
                         mly = new Mapillary.Viewer(
