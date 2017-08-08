@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="//cartodb-libs.global.ssl.fastly.net/cartodbui/assets/4.9.21/favicons/favicon.ico?1467884078" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+    <title>Amsterdam data - CARTO</title>
+    <meta name="description" content="Map created by abel in CARTO">
+    <meta name="keywords" content="Amsterdam, data, -, CARTO, datasets, maps, data visualization, spatial data, geospatial, CARTO">
+    <meta name="author" content="abel">
+    <meta charset='utf-8' />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+    <meta property="og:title" content="Amsterdam data - CARTO" />
+    <meta property="og:site_name" content="CARTO" />
+    <meta property="og:description" content="Map created by abel in CARTO" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://team.carto.com/u/abel/builder/e58d0639-44b4-4442-b29a-ac30b7f76f13/embed" />
+    <meta property="og:image" content="https://cartocdn-ashbu.global.ssl.fastly.net/abel/api/v1/map/static/named/tpl_e58d0639_44b4_4442_b29a_ac30b7f76f13/1200/630.png">
+    <meta property="fb:app_id" content="204330262947622" />
+    <meta property="fb:admins" content="500593636634213" />
+    <meta property="article:publisher" content="https://www.facebook.com/cartodb" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@cartodb">
+    <meta name="twitter:title" content="Amsterdam data - CARTO">
+    <meta name="twitter:description" content="Map created by abel in CARTO">
+    <meta name="twitter:image" content="https://cartocdn-ashbu.global.ssl.fastly.net/abel/api/v1/map/static/named/tpl_e58d0639_44b4_4442_b29a_ac30b7f76f13/560/300.png">
+
+
+    <link href="//cartodb-libs.global.ssl.fastly.net/cartodbui/assets/4.9.21/stylesheets/public_editor3.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="//cartodb-libs.global.ssl.fastly.net/cartodbui/assets/4.9.21/stylesheets/deep_insights.css" media="all" rel="stylesheet" type="text/css" />
+    <!--      mapillary-->
+    <link rel="stylesheet" href="https://unpkg.com/mapillary-js@2.5.1/dist/mapillary.min.css" />
+    <style type="text/css">
+        html,
+        body {
+            position: relative;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        #visor,
+        #visorInner {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 100%;
+            height: 300px;
+            z-index: 1;
+        }
+    </style>
+
+</head>
+
+<body class="">
+
+    <div id="dashboard"></div>
+
+
+    <script>
+        window._trackJs = {
+            enabled: true,
+            application: 'j2fvjk4hsmckojrqpxjp',
+            version: '4.9.21',
+            userId: 'abel'
+        };
+    </script>
+    <script type="text/javascript" src="//d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js" data-token="cf7a7cd8411140689ea94e92d9fba842"></script>
+
+
+    <script src="//cartodb-libs.global.ssl.fastly.net/cartodbui/assets/4.9.21/javascripts/tangram.min.js" type="text/javascript"></script>
+
+
+    <script>
+        var vizJSON = JSON.parse('{\"bounds\":[[52.2726,4.70723],[52.4292,5.03255]],\"center\":\"[52.3508969964094,4.8692170016666445]\",\"datasource\":{\"user_name\":\"abel\",\"maps_api_template\":\"https://{user}.carto.com:443\",\"stat_tag\":\"e58d0639-44b4-4442-b29a-ac30b7f76f13\",\"template_name\":\"tpl_e58d0639_44b4_4442_b29a_ac30b7f76f13\"},\"description\":null,\"options\":{\"legends\":true,\"scrollwheel\":true,\"layer_selector\":false,\"dashboard_menu\":true},\"id\":\"e58d0639-44b4-4442-b29a-ac30b7f76f13\",\"layers\":[{\"id\":\"7c68382a-8819-43ef-8c80-b178329f8b53\",\"type\":\"tiled\",\"options\":{\"type\":\"Tiled\",\"urlTemplate\":\"https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png\",\"subdomains\":\"abcd\",\"minZoom\":\"0\",\"maxZoom\":\"18\",\"name\":\"Dark matter\",\"className\":\"dark_matter_rainbow_labels\",\"attribution\":\"&copy; <a href=\\\"http://www.openstreetmap.org/copyright\\\">OpenStreetMap<\/a> contributors\",\"category\":\"CARTO\",\"selected\":true,\"val\":\"dark_matter_rainbow_labels\",\"label\":\"Dark matter\",\"default\":false,\"highlighted\":true}},{\"id\":\"735dad12-2754-4b81-a584-6ba3c8670b90\",\"type\":\"CartoDB\",\"visible\":true,\"options\":{\"layer_name\":\"Category\",\"attribution\":\"\",\"cartocss\":\"#layer {\\n  marker-width: 2;\\n  marker-fill: ramp([cat], (#5F4690, #1D6996, #38A6A5, #0F8554, #73AF48, #EDAD08, #E17C05, #CC503E, #94346E, #6F4070, #666666), (\\\"vegetation\\\", \\\"bikes\\\", \\\"bridges\\\", \\\"curbs\\\", \\\"water\\\", \\\"crosswalks\\\", \\\"tunnels\\\", \\\"trash\\\", \\\"roads\\\", \\\"billboards\\\"), \\\"=\\\");\\n  marker-fill-opacity: 1;\\n  marker-allow-overlap: true;\\n  marker-line-width: 0;\\n  marker-line-color: #FFF;\\n  marker-line-opacity: 1;\\n  marker-comp-op: screen;\\n  [zoom >12]{marker-width: 4;}\\n  [zoom >13]{marker-width: 6;}\\n  [zoom >14]{marker-width: 8;}\\n  [zoom >15]{marker-width: 10;}\\n  [zoom >16]{marker-width: 12;}\\n  [zoom >17]{marker-width: 14;}\\n  [zoom >18]{marker-width: 16;}\\n}\",\"source\":\"a0\"},\"infowindow\":{\"template_name\":\"\",\"fields\":[{\"name\":\"key\",\"title\":true,\"position\":0},{\"name\":\"cat\",\"title\":true,\"position\":1}],\"maxHeight\":180,\"template\":\"<div class=\\\"CDB-infowindow CDB-infowindow--light js-infowindow\\\">\\n  <div class=\\\"CDB-infowindow-close js-close\\\"><\/div>\\n  <div class=\\\"CDB-infowindow-container\\\">\\n    <div class=\\\"CDB-infowindow-bg\\\">\\n      <div class=\\\"CDB-infowindow-inner\\\">\\n\\n<div id=\\\"catlabel\\\">Looking at {{cat}}<br><\/div>\\n<div id=\\\"visor\\\" data-key=\\\"{{key}}\\\"><\/div>\\n      <\/div>\\n    <\/div>\\n    <div class=\\\"CDB-hook\\\">\\n      <div class=\\\"CDB-hook-inner\\\"><\/div>\\n    <\/div>\\n  <\/div>\\n<\/div>\\n\",\"alternative_names\":{},\"width\":400,\"headerColor\":{\"color\":{\"fixed\":\"#35AAE5\",\"opacity\":1}},\"template_type\":\"mustache\"},\"tooltip\":{\"fields\":[{\"name\":\"cat\",\"title\":true,\"position\":null}],\"template_name\":\"tooltip_light\",\"template\":\"<div class=\\\"CDB-Tooltip CDB-Tooltip--isLight\\\">\\n  <ul class=\\\"CDB-Tooltip-list\\\">\\n    {{#fields}}\\n      <li class=\\\"CDB-Tooltip-listItem\\\">\\n        {{#title}}\\n          <h3 class=\\\"CDB-Tooltip-listTitle\\\">{{{ title }}}<\/h3>\\n        {{/title}}\\n        <h4 class=\\\"CDB-Tooltip-listText\\\">{{{ value }}}<\/h4>\\n      <\/li>\\n    {{/fields}}\\n  <\/ul>\\n<\/div>\\n\",\"template_type\":\"mustache\",\"alternative_names\":{\"cat\":\"Looking at\"}},\"legends\":[{\"conf\":null,\"created_at\":null,\"definition\":{\"categories\":[{\"title\":\"vegetation\",\"color\":\"#5F4690\"},{\"title\":\"bikes\",\"color\":\"#1D6996\"},{\"title\":\"bridges\",\"color\":\"#38A6A5\"},{\"title\":\"curbs\",\"color\":\"#0F8554\"},{\"title\":\"water\",\"color\":\"#73AF48\"},{\"title\":\"crosswalks\",\"color\":\"#EDAD08\"},{\"title\":\"tunnels\",\"color\":\"#E17C05\"},{\"title\":\"trash\",\"color\":\"#CC503E\"},{\"title\":\"roads\",\"color\":\"#94346E\"},{\"title\":\"billboards\",\"color\":\"#6F4070\"},{\"title\":\"benchs\",\"color\":\"#666666\"}]},\"id\":null,\"layer_id\":null,\"post_html\":\"\",\"pre_html\":\"\",\"title\":\"\",\"type\":\"custom\",\"updated_at\":null}]},{\"id\":\"bfb07a26-da85-4c86-afdb-c9c58509d132\",\"type\":\"tiled\",\"options\":{\"default\":\"true\",\"url\":\"https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_only_labels/{z}/{x}/{y}.png\",\"subdomains\":\"abcd\",\"minZoom\":\"0\",\"maxZoom\":\"18\",\"attribution\":\"&copy; <a href=\\\"http://www.openstreetmap.org/copyright\\\">OpenStreetMap<\/a> contributors\",\"urlTemplate\":\"https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_only_labels/{z}/{x}/{y}.png\",\"type\":\"Tiled\",\"name\":\"Dark matter Labels\",\"className\":\"dark_matter_rainbow_labels\",\"category\":\"CARTO\",\"selected\":true,\"val\":\"dark_matter_rainbow_labels\",\"label\":\"Dark matter\",\"highlighted\":true}}],\"likes\":0,\"map_provider\":\"leaflet\",\"overlays\":[{\"type\":\"share\",\"order\":1,\"options\":{\"display\":true,\"x\":20,\"y\":20},\"template\":\"\"},{\"type\":\"search\",\"order\":2,\"options\":{\"display\":true,\"x\":60,\"y\":20},\"template\":\"\"},{\"type\":\"zoom\",\"order\":3,\"options\":{\"display\":true,\"x\":20,\"y\":20},\"template\":\"<a href=\\\"#zoom_in\\\" class=\\\"zoom_in\\\">+<\/a> <a href=\\\"#zoom_out\\\" class=\\\"zoom_out\\\">-<\/a>\"},{\"type\":\"loader\",\"order\":4,\"options\":{\"display\":true,\"x\":20,\"y\":150},\"template\":\"<div class=\\\"loader\\\" original-title=\\\"\\\"><\/div>\"},{\"type\":\"logo\",\"order\":5,\"options\":{\"display\":true,\"x\":10,\"y\":40},\"template\":\"\"}],\"title\":\"Amsterdam data - CARTO\",\"updated_at\":\"2017-08-08T14:25:52+00:00\",\"user\":{\"fullname\":\"abel\",\"avatar_url\":\"https://s3.amazonaws.com/com.cartodb.users-assets.production/production/abel/assets/20160318095129abel.c52ddb5d.jpg\",\"profile_url\":\"https://team.carto.com/u/abel\"},\"version\":\"3.0.0\",\"widgets\":[{\"id\":\"f78cd2c6-5b48-48dc-972c-b142c239d81b\",\"type\":\"formula\",\"title\":\"Images\",\"order\":0,\"layer_id\":\"735dad12-2754-4b81-a584-6ba3c8670b90\",\"options\":{\"column\":\"cartodb_id\",\"operation\":\"count\",\"column_type\":\"number\",\"sync_on_data_change\":true,\"sync_on_bbox_change\":true,\"aggregate\":{\"attribute\":\"cartodb_id\",\"operator\":\"count\"}},\"style\":{\"widget_style\":{\"definition\":{\"color\":{\"fixed\":\"#9DE0AD\",\"opacity\":1}},\"widget_color_changed\":false},\"auto_style\":{\"custom\":false,\"allowed\":true}},\"source\":{\"id\":\"a0\"}},{\"id\":\"2bcdcc7d-cefc-4a93-b61e-f4254b13acd5\",\"type\":\"category\",\"title\":\"Images per category\",\"order\":1,\"layer_id\":\"735dad12-2754-4b81-a584-6ba3c8670b90\",\"options\":{\"column\":\"cat\",\"aggregation_column\":\"cat\",\"aggregation\":\"count\",\"column_type\":\"string\",\"sync_on_data_change\":true,\"sync_on_bbox_change\":true},\"style\":{\"widget_style\":{\"definition\":{\"color\":{\"fixed\":\"#9DE0AD\",\"opacity\":1}},\"widget_color_changed\":false},\"auto_style\":{\"custom\":false,\"allowed\":true}},\"source\":{\"id\":\"a0\"}}],\"zoom\":10,\"analyses\":[{\"id\":\"a0\",\"type\":\"source\",\"options\":{\"table_name\":\"abel.mapillary_amsterdam\",\"simple_geom\":\"point\"}}]}');
+
+        var layersData = JSON.parse('[{\"id\":\"7c68382a-8819-43ef-8c80-b178329f8b53\",\"options\":{}},{\"id\":\"735dad12-2754-4b81-a584-6ba3c8670b90\",\"options\":{\"style_version\":\"2.1.1\",\"tile_style\":\"#layer {\\n  marker-width: 2;\\n  marker-fill: ramp([cat], (#5F4690, #1D6996, #38A6A5, #0F8554, #73AF48, #EDAD08, #E17C05, #CC503E, #94346E, #6F4070, #666666), (\\\"vegetation\\\", \\\"bikes\\\", \\\"bridges\\\", \\\"curbs\\\", \\\"water\\\", \\\"crosswalks\\\", \\\"tunnels\\\", \\\"trash\\\", \\\"roads\\\", \\\"billboards\\\"), \\\"=\\\");\\n  marker-fill-opacity: 1;\\n  marker-allow-overlap: true;\\n  marker-line-width: 0;\\n  marker-line-color: #FFF;\\n  marker-line-opacity: 1;\\n  marker-comp-op: screen;\\n  [zoom >12]{marker-width: 4;}\\n  [zoom >13]{marker-width: 6;}\\n  [zoom >14]{marker-width: 8;}\\n  [zoom >15]{marker-width: 10;}\\n  [zoom >16]{marker-width: 12;}\\n  [zoom >17]{marker-width: 14;}\\n  [zoom >18]{marker-width: 16;}\\n}\"}},{\"id\":\"bfb07a26-da85-4c86-afdb-c9c58509d132\",\"options\":{}}]');
+        var layersData = JSON.parse('[{\"id\":\"7c68382a-8819-43ef-8c80-b178329f8b53\",\"options\":{}},{\"id\":\"735dad12-2754-4b81-a584-6ba3c8670b90\",\"options\":{\"style_version\":\"2.1.1\",\"tile_style\":\"#layer {\\n  marker-width: 2;\\n  marker-fill: ramp([cat], (#5F4690, #1D6996, #38A6A5, #0F8554, #73AF48, #EDAD08, #E17C05, #CC503E, #94346E, #6F4070, #666666), (\\\"vegetation\\\", \\\"bikes\\\", \\\"bridges\\\", \\\"curbs\\\", \\\"water\\\", \\\"crosswalks\\\", \\\"tunnels\\\", \\\"trash\\\", \\\"roads\\\", \\\"billboards\\\"), \\\"=\\\");\\n  marker-fill-opacity: 1;\\n  marker-allow-overlap: true;\\n  marker-line-width: 0;\\n  marker-line-color: #FFF;\\n  marker-line-opacity: 1;\\n  marker-comp-op: screen;\\n  [zoom >12]{marker-width: 4;}\\n  [zoom >13]{marker-width: 6;}\\n  [zoom >14]{marker-width: 8;}\\n  [zoom >15]{marker-width: 10;}\\n  [zoom >16]{marker-width: 12;}\\n  [zoom >17]{marker-width: 14;}\\n  [zoom >18]{marker-width: 16;}\\n}\"}},{\"id\":\"bfb07a26-da85-4c86-afdb-c9c58509d132\",\"options\":{}}]');
+        var layersData = JSON.parse('[{\"id\":\"7c68382a-8819-43ef-8c80-b178329f8b53\",\"options\":{}},{\"id\":\"735dad12-2754-4b81-a584-6ba3c8670b90\",\"options\":{\"style_version\":\"2.1.1\",\"tile_style\":\"#layer {\\n  marker-width: 2;\\n  marker-fill: ramp([cat], (#5F4690, #1D6996, #38A6A5, #0F8554, #73AF48, #EDAD08, #E17C05, #CC503E, #94346E, #6F4070, #666666), (\\\"vegetation\\\", \\\"bikes\\\", \\\"bridges\\\", \\\"curbs\\\", \\\"water\\\", \\\"crosswalks\\\", \\\"tunnels\\\", \\\"trash\\\", \\\"roads\\\", \\\"billboards\\\"), \\\"=\\\");\\n  marker-fill-opacity: 1;\\n  marker-allow-overlap: true;\\n  marker-line-width: 0;\\n  marker-line-color: #FFF;\\n  marker-line-opacity: 1;\\n  marker-comp-op: screen;\\n  [zoom >12]{marker-width: 4;}\\n  [zoom >13]{marker-width: 6;}\\n  [zoom >14]{marker-width: 8;}\\n  [zoom >15]{marker-width: 10;}\\n  [zoom >16]{marker-width: 12;}\\n  [zoom >17]{marker-width: 14;}\\n  [zoom >18]{marker-width: 16;}\\n}\"}},{\"id\":\"bfb07a26-da85-4c86-afdb-c9c58509d132\",\"options\":{}}]');
+        var stateJSON = JSON.parse('{\"map\":{\"ne\":[52.214969674901404,4.57683563232422],\"sw\":[52.48633449800855,5.161514282226563],\"center\":[52.35086033104431,4.8691749572753915],\"zoom\":12}}');
+        var authTokens = JSON.parse('[]');
+        var mapzenApiKey = 'mapzen-YfBeDWS';
+    </script>
+    <script src="//cartodb-libs.global.ssl.fastly.net/cartodbui/assets/4.9.21/javascripts/common.js" type="text/javascript"></script>
+    <script src="//cartodb-libs.global.ssl.fastly.net/cartodbui/assets/4.9.21/javascripts/builder_embed_vendor.js" type="text/javascript"></script>
+    <script src="//cartodb-libs.global.ssl.fastly.net/cartodbui/assets/4.9.21/javascripts/builder_embed.js" type="text/javascript"></script>
+
+    <!--mapillary-->
+    <script src="https://unpkg.com/mapillary-js@2.5.1/dist/mapillary.min.js"></script>
+
+    <script>
+        var visorInner = document.createElement('div'),
+            mly;
+        visorInner.id = 'visorInner';
+        window.onload = function() {
+            var
+                original_show = mapView._infowindowManager._showInfowindow,
+                original_hide = mapView._infowindowManager._hideInfowindow;
+            mapView._infowindowManager._showInfowindow = function(featureId) {
+                var gogogo = function() {
+                    var visor = document.querySelector('#visor'),
+                        imgkey = visor.getAttribute('data-key');
+                    visor.appendChild(visorInner);
+                    if (mly == null) {
+                        mly = new Mapillary.Viewer(
+                            'visorInner',
+                            'UTZhSnNFdGpxSEFFREUwb01GYzlXZzpkMWM2YzdjYjQxN2FhM2Vh',
+                            null, {
+
+                                component: {
+                                    cache: false,
+                                    cover: false,
+                                    direction: false,
+                                    sequence: false
+                                },
+                            });
+                    }
+                    mly.moveToKey(imgkey)
+                    console.log(imgkey);
+                };
+                original_show.apply(this, arguments);
+                setTimeout(gogogo, 200);
+            }
+            mapView._infowindowManager._hideInfowindow = function() {
+                visorInner = visor.removeChild(visorInner);
+                original_hide.apply(this, arguments);
+            }
+        };
+    </script>
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-20934186-10']);
+        _gaq.push(['_setDomainName', 'carto.com']);
+        _gaq.push(['_setAllowLinker', true]);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+
+</body>
+
+</html>
